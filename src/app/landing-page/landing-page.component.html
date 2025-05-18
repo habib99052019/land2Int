@@ -1,0 +1,74 @@
+
+
+  <!-- Sélection des produits -->
+  
+
+<div class="page-background">
+
+  <!-- Formulaire -->
+<div class="form-wrapper" >
+  <div class="form-logo">
+    <img [src]="logo"  alt="Logo" />
+  </div>
+
+  <h2>نموذج التسجيل</h2>
+  <p class="form-description" id="productName">{{ productNameText }}</p>
+
+  <!-- Étape 0 : infos personnelles -->
+<div #step class="step" style="display: none;">
+  <input type="text" name="name" [(ngModel)]="formData.name" placeholder="الاسم الكامل" required />
+  <div style="display: flex; gap: 10px;">
+  <select [(ngModel)]="formData1.countryCode" name="countryCode">
+    <option value="+216">🇹🇳 +216</option>
+    <option value="+33">🇫🇷 +33</option>
+    <option value="+1">🇺🇸 +1</option>
+    <option value="+44">🇬🇧 +44</option>
+    <!-- Ajoute d'autres pays selon besoin -->
+  </select>
+
+  <input type="tel" [(ngModel)]="formData.phone" name="phone" placeholder="رقم الهاتف" />
+</div>
+
+  
+  <input type="email" name="email" [(ngModel)]="formData.email" placeholder="البريد الإلكتروني" required />
+  <button type="button" (click)="nextStep1()">إرسال</button>
+</div>
+
+<!-- Étapes dynamiques -->
+<ng-container *ngFor="let step of steps; let i = index" >
+  <div #step class="step" style="display: none;">
+    <input *ngIf="step.type === 'input'" type="text"
+           [name]="step.name"
+           [placeholder]="step.placeholder"
+           [(ngModel)]="formData.answers[step.name]" required />
+
+    <select *ngIf="step.type === 'select'"
+            [name]="step.name"
+            [(ngModel)]="formData.answers[step.name]" required>
+             
+   
+      <option *ngFor="let opt of step.options" [value]="opt">{{ opt }}</option>
+    </select>
+
+   <button type="button" (click)="currentStep === steps.length ? showConfirmation() : nextStep(i)">
+  {{ currentStep === steps.length ? 'إرسال نهائي' : 'التالي' }}
+</button>
+
+
+   
+  </div>
+</ng-container>
+
+ <div class="confirmation" *ngIf="formSubmitted">
+  <p class="success-message">{{ successMessage }}</p>
+</div>
+  
+</div>
+
+
+  <!-- WhatsApp Button -->
+  <a [href]="'https://wa.me/' + numeroWhatsapp"target="_blank" class="whatsapp-button" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+</div>

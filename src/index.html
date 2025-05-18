@@ -1,13 +1,54 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Land2</title>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحة المنتجات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <app-root></app-root>
+    <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll(".step");
+    const productName = document.getElementById("productName");
+
+    function selectProduct(card, name) {
+      document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      card.querySelector('input[type=radio]').checked = true;
+      productName.textContent = "المنتج المختار: " + name;
+    }
+
+    function showStep(index) {
+      steps.forEach((step) => {
+        step.classList.remove("show");
+        step.style.display = "none";
+      });
+      steps[index].style.display = "flex";
+      setTimeout(() => {
+        steps[index].classList.add("show");
+      }, 10);
+    }
+
+    function nextStep() {
+      steps[currentStep].classList.remove("show");
+      setTimeout(() => {
+        currentStep++;
+        if (currentStep < steps.length) {
+          showStep(currentStep);
+        }
+      }, 300);
+    }
+
+    function showConfirmation() {
+      document.getElementById("multiStepForm").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
