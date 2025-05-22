@@ -1,0 +1,152 @@
+  * {
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: #f2f0f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #ffffff;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .image-section {
+      flex: 1 1 300px;
+      background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover no-repeat;
+      min-height: 300px;
+      transition: all 0.5s ease;
+    }
+
+    .form-section {
+      flex: 1 1 600px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .step {
+
+     
+      flex-direction: column;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      animation-duration: 0.5s;
+    }
+
+    .step.active {
+      display: flex;
+      opacity: 1;
+      transform: translateX(0);
+      animation: fadeInSlide 0.5s ease;
+    }
+.ggg{
+   animation: fadeInSlide 0.5s ease;
+}
+    @keyframes fadeInSlide {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    input, select, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input, select {
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+
+    button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1976d2;
+    }
+
+    .confirmation {
+      text-align: center;
+      font-size: 20px;
+      color: green;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+ .image-section {
+    height: 200px;
+  }
+ 
+
+    }
+    .form-description {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: spin 3s linear infinite;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Animation de rotation continue */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

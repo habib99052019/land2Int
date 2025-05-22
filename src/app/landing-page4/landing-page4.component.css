@@ -1,0 +1,98 @@
+
+  
+    .section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .top-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background-color: #f2f0f7;
+      padding: 40px 20px;
+    }
+    .top-section .text {
+      flex: 1;
+      min-width: 280px;
+      padding: 20px;
+      font-size: 28px;
+    }
+    .top-section .image {
+      flex: 1;
+      min-width: 280px;
+      padding: 20px;
+    }
+    .top-section .image img {
+      max-width: 100%;
+      border-radius: 16px;
+      border: 3px solid #3d5afe;
+    }
+    .caption {
+      background-color: #a5f2c7;
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 0 0 8px 8px;
+      font-size: 14px;
+    }
+    .stats-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 0;
+      background-color: #fff;
+    }
+    .stat-box {
+      background-color: #f2f0f7;
+      border-radius: 16px;
+      padding: 30px;
+      min-width: 200px;
+      flex: 1;
+      max-width: 250px;
+    }
+    .stat-box h2 {
+      color: #3d5afe;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .team-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .team-section img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .team-box {
+      background-color: #f2f0f7;
+      border-radius: 16px;
+      padding: 20px;
+      display: inline-block;
+      max-width: 320px;
+    }
+    .team-box h2 {
+      color: #3d5afe;
+      font-size: 36px;
+    }
+    @media (max-width: 768px) {
+      .top-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .top-section .text {
+        font-size: 22px;
+      }
+      .stat-box {
+        flex: none;
+        width: 90%;
+      }
+      .stats-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .team-box {
+        width: 90%;
+      }
+    }

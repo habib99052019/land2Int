@@ -5,6 +5,7 @@ import { LandingPageService } from '../services/landing-page.service';
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
+
 })
 export class LandingPageComponent {
   numeroWhatsapp=12587455
@@ -109,7 +110,7 @@ this.formData.answers['interest'] = interestStep && interestStep.options?.length
   
        const current = this.stepsRef.toArray()[this.currentStep]?.nativeElement;
     if (current) current.classList.remove('show');
-
+console.log(this.formData.answers)
     setTimeout(() => {
       this.currentStep++;
       if (this.currentStep < this.stepsRef.length) {

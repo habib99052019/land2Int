@@ -1,0 +1,73 @@
+
+<body>
+  <div class="container">
+    <div class="image-section" id="imageSection"></div>
+
+    <div class="form-section" >
+       
+              <p class="form-description" >املأ هذا النموذج لتحصل على استشارتك المجانية خلال دقائق.</p>
+            <h2>نموذج التسجيل</h2>
+           
+
+      
+     
+       
+
+
+      <form id="multiStepForm">
+        <!-- Step 1 -->
+        <div class="step active" *ngIf="!formSubmitted">
+          <input type="text" [(ngModel)]="formData.name" name="name" placeholder="الاسم الكامل" required />
+           <select [(ngModel)]="formData1.countryCode" name="countryCode">
+    <option value="+216">🇹🇳 +216</option>
+    <option value="+33">🇫🇷 +33</option>
+    <option value="+1">🇺🇸 +1</option>
+    <option value="+44">🇬🇧 +44</option>
+    <!-- Ajoute d'autres pays selon besoin -->
+  </select>
+          <input type="tel" [(ngModel)]="formData.name" name="phone" placeholder="رقم الهاتف" required />
+          <input type="email" [(ngModel)]="formData.email" name="email" placeholder="البريد الإلكتروني" required />
+          <button type="button" (click)="nextStep1()">إرسال</button>
+        </div>
+ <ng-container  *ngFor="let step of steps; let i = index">
+
+     <div  class="step active" *ngIf="currentStep == i + 1" >
+      <input  *ngIf="step.type === 'input'" type="text"
+             [name]="step.name"
+             [placeholder]="step.placeholder"
+             [(ngModel)]="formData.answers[step.name]"
+             required [ngModelOptions]="{standalone: true}" />
+
+      <select *ngIf="step.type === 'select'"
+              [name]="step.name"
+              [(ngModel)]="formData.answers[step.name]"
+              required [ngModelOptions]="{standalone: true}">
+
+        <option value="" disabled >'ffff</option>
+        <option *ngFor="let opt of step.options" [value]="opt">{{ opt }}</option>
+      </select>
+
+      <button type="button"
+              (click)="i + 1 === steps.length ? showConfirmation() : nextStep()">
+        {{ i + 1 === steps.length ? 'إرسال نهائي' : 'التالي' }}
+      </button>
+    </div>
+
+   
+  </ng-container>
+      </form>
+
+      <div class="confirmation" id="confirmation">
+        ✅ تم إرسال النموذج بنجاح! شكراً لك.
+      </div>
+    </div>
+  </div>
+
+
+  <a href="https://wa.me/21612345678" target="_blank" class="whatsapp-button" aria-label="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+</body>
+
+<!------>
