@@ -16,7 +16,7 @@
       flex: 1;
       min-width: 280px;
       padding: 20px;
-      font-size: 28px;
+      font-size: 22px;
     }
     .top-section .image {
       flex: 1;
@@ -28,54 +28,8 @@
       border-radius: 16px;
       /* border: 3px solid #3d5afe; */
     }
-    .caption {
-      background-color: #a5f2c7;
-      padding: 8px;
-      margin-top: 8px;
-      border-radius: 0 0 8px 8px;
-      font-size: 14px;
-    }
-    .stats-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px 0;
-      background-color: #fff;
-    }
-    .stat-box {
-      background-color: #f2f0f7;
-      border-radius: 16px;
-      padding: 30px;
-      min-width: 200px;
-      flex: 1;
-      max-width: 250px;
-    }
-    .stat-box h2 {
-      color: #3d5afe;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .team-section {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .team-section img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-    .team-box {
-      background-color: #f2f0f7;
-      border-radius: 16px;
-      padding: 20px;
-      display: inline-block;
-      max-width: 320px;
-    }
-    .team-box h2 {
-      color: #3d5afe;
-      font-size: 36px;
-    }
+   
+  
     @media (max-width: 768px) {
       .top-section {
         flex-direction: column;
@@ -84,18 +38,48 @@
       .top-section .text {
         font-size: 22px;
       }
-      .stat-box {
-        flex: none;
-        width: 90%;
-      }
-      .stats-section {
-        flex-direction: column;
-        align-items: center;
-      }
-      .team-box {
-        width: 90%;
-      }
+     
     }
+.cta-button {
+  margin-top: 20px;
+  padding: 16px 32px; /* plus d’espace intérieur */
+  font-size: 20px;
+  background-color: #e53935; /* rouge */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.3s ease;
+  
+  /* largeur plus grande */
+  min-width: 280px;
+  max-width: 90%;
+  justify-content: center;
+}
+
+
+.cta-button:hover {
+  background-color: #c62828;
+}
+
+.cta-button .arrow {
+  font-size: 20px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+@media (max-width: 768px) {
+  .top-section .text h1 {
+    font-size: 1.17em; /* taille de h3 */
+  }
+}
+
 /* landing-page.component.css */
  .fade-in-section {
   opacity: 0;
@@ -106,4 +90,115 @@
 .fade-in-section.visible {
   opacity: 1;
   transform: none;
+}
+.section-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .top-section {
+    flex-direction: column;
+  }
+
+  .top-section .image {
+    order: 0; /* تجعل الصورة تظهر أولاً */
+  }
+
+  .top-section .text {
+    order: -1;
+  }
+}
+.testimonial-section {
+  padding: 50px 20px;
+  background-color: #f2f0f7;
+  text-align: center;
+}
+
+.testimonial-section h2 {
+  font-size: 32px;
+ 
+  margin-bottom: 30px;
+}
+.features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .feature {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+.testimonial-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.testimonial-gallery img {
+  width: 250px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-gallery img:hover {
+  transform: scale(1.05);
+}
+ @media (max-width: 600px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+    .whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: pulse 2s infinite;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebc59;
+}
+
+.whatsapp-button i {
+  font-size: 22px;
+}
+
+/* Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
